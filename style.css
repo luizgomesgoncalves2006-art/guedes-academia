@@ -17,3 +17,7 @@
   .has-reveal .reveal.revealed{animation:guedes-fade .7s ease both}
   @keyframes guedes-fade{from{opacity:0}to{opacity:1}}
 }
+
+/* A aspa ocupa sua própria linha, inclusive nos cards estreitos do celular. */
+.quote{padding-top:24px}
+.quote:before{position:static;display:block;height:48px;font-size:3.5rem;line-height:1}
