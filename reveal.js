@@ -1,24 +1,33 @@
 (() => {
-  if (!('IntersectionObserver' in window) ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
   const selector = [
     '.hero-copy > *', '.hero-photo', '.page-hero .wrap > *',
     '.section-title', '.split > *', '.value', '.hours',
     '.plan', '.quote', '.note', '.video-box', '.banner .wrap > *'
   ].join(',');
 
-  const elements = [...document.querySelectorAll(selector)];
-  for (const element of elements) element.classList.add('reveal');
+  const elements = Array.from(document.querySelectorAll(selector));
+  elements.forEach((element) => element.classList.add('reveal'));
   document.documentElement.classList.add('has-reveal');
 
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.add('revealed');
-      observer.unobserve(entry.target);
-    }
-  }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+  let scheduled = false;
+  function revealVisible() {
+    scheduled = false;
+    const triggerLine = window.innerHeight * 0.88;
+    elements.forEach((element) => {
+      if (element.classList.contains('revealed')) return;
+      const bounds = element.getBoundingClientRect();
+      if (bounds.top < triggerLine && bounds.bottom > 0) {
+        element.classList.add('revealed');
+      }
+    });
+  }
+  function onScroll() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(revealVisible);
+  }
 
-  for (const element of elements) observer.observe(element);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  requestAnimationFrame(revealVisible);
 })();
