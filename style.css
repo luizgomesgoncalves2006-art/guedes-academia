@@ -7,9 +7,10 @@
 
 /* Revela cada bloco quando ele entra na tela. Sem JavaScript, tudo permanece visível. */
 @media(prefers-reduced-motion:no-preference){
-  .has-reveal .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
-  .has-reveal .reveal.revealed{opacity:1;transform:none}
-  .has-reveal .value:nth-child(2),.has-reveal .plan:nth-child(2),.has-reveal .quote:nth-child(2){transition-delay:90ms}
-  .has-reveal .value:nth-child(3),.has-reveal .plan:nth-child(3),.has-reveal .quote:nth-child(3){transition-delay:180ms}
-  .has-reveal .plan:nth-child(4),.has-reveal .quote:nth-child(4){transition-delay:270ms}
+  .has-reveal .reveal:not(.revealed){opacity:0;transform:translateY(38px)}
+  .has-reveal .reveal.revealed{animation:guedes-entrar .8s cubic-bezier(.18,.75,.22,1) both}
+  .has-reveal .value:nth-child(2),.has-reveal .plan:nth-child(2),.has-reveal .quote:nth-child(2){animation-delay:90ms}
+  .has-reveal .value:nth-child(3),.has-reveal .plan:nth-child(3),.has-reveal .quote:nth-child(3){animation-delay:180ms}
+  .has-reveal .plan:nth-child(4),.has-reveal .quote:nth-child(4){animation-delay:270ms}
+  @keyframes guedes-entrar{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
 }
