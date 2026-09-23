@@ -12,7 +12,7 @@
   let scheduled = false;
   function revealVisible() {
     scheduled = false;
-    const triggerLine = window.innerHeight * 0.88;
+    const triggerLine = window.innerHeight * 0.78;
     elements.forEach((element) => {
       if (element.classList.contains('revealed')) return;
       const bounds = element.getBoundingClientRect();

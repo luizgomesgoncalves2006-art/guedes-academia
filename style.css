@@ -7,13 +7,13 @@
 
 /* Revela cada bloco quando ele entra na tela. Sem JavaScript, tudo permanece visível. */
 .has-reveal .reveal:not(.revealed){opacity:0;transform:translateY(38px)}
-.has-reveal .reveal.revealed{animation:guedes-entrar .8s cubic-bezier(.18,.75,.22,1) both}
-.has-reveal .value:nth-child(2),.has-reveal .plan:nth-child(2),.has-reveal .quote:nth-child(2){animation-delay:90ms}
-.has-reveal .value:nth-child(3),.has-reveal .plan:nth-child(3),.has-reveal .quote:nth-child(3){animation-delay:180ms}
-.has-reveal .plan:nth-child(4),.has-reveal .quote:nth-child(4){animation-delay:270ms}
+.has-reveal .reveal.revealed{animation:guedes-entrar 1.3s cubic-bezier(.16,.8,.24,1) both}
+.has-reveal .value:nth-child(2),.has-reveal .plan:nth-child(2),.has-reveal .quote:nth-child(2){animation-delay:160ms}
+.has-reveal .value:nth-child(3),.has-reveal .plan:nth-child(3),.has-reveal .quote:nth-child(3){animation-delay:320ms}
+.has-reveal .plan:nth-child(4),.has-reveal .quote:nth-child(4){animation-delay:480ms}
 @keyframes guedes-entrar{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){
   .has-reveal .reveal:not(.revealed){transform:none}
-  .has-reveal .reveal.revealed{animation:guedes-fade .3s ease both}
+  .has-reveal .reveal.revealed{animation:guedes-fade .7s ease both}
   @keyframes guedes-fade{from{opacity:0}to{opacity:1}}
 }
