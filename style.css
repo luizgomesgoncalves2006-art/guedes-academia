@@ -4,3 +4,12 @@
 .split img[src="assets/orientacao.webp"]{height:620px;object-fit:contain;object-position:center;background:#e8eff4}
 @media(max-width:850px){.split img[src="assets/orientacao.webp"]{height:560px}}
 @media(max-width:600px){.split img[src="assets/orientacao.webp"]{height:480px}}
+
+/* Revela cada bloco quando ele entra na tela. Sem JavaScript, tudo permanece visível. */
+@media(prefers-reduced-motion:no-preference){
+  .has-reveal .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+  .has-reveal .reveal.revealed{opacity:1;transform:none}
+  .has-reveal .value:nth-child(2),.has-reveal .plan:nth-child(2),.has-reveal .quote:nth-child(2){transition-delay:90ms}
+  .has-reveal .value:nth-child(3),.has-reveal .plan:nth-child(3),.has-reveal .quote:nth-child(3){transition-delay:180ms}
+  .has-reveal .plan:nth-child(4),.has-reveal .quote:nth-child(4){transition-delay:270ms}
+}
